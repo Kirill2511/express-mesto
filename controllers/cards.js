@@ -12,13 +12,8 @@ module.exports.createCard = (req, res) => {
   const { name, link } = req.body;
   const owner = req.user._id;
   Card.create({ name, link, owner })
-    .then((card) => res.status(200).send(card))
-    .catch((err) => {
-      if (err === 'ValidationError') {
-        return res.status(400).send({ message: 'Ошибка валидации' });
-      }
-      return res.status(500).send({ message: 'Ошибка сервера' });
-    });
+    .then((card) => res.send(card))
+    .catch(() => res.status(400).send({ message: 'Переданы некорректные данные в метод создания карточки' }));
 };
 
 module.exports.deleteCard = (req, res) => {
@@ -29,11 +24,7 @@ module.exports.deleteCard = (req, res) => {
       }
       return res.status(200).send(card);
     })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        res.status(400).send({ message: 'Переданы некорректные данные' });
-      } else {
-        res.status(500).send({ message: 'Ошибка сервера' });
-      }
+    .catch(() => {
+      res.status(400).send({ message: 'Переданы некорректные данные' });
     });
 };

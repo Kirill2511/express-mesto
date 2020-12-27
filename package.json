@@ -1,8 +1,8 @@
 {
   "name": "express-mesto",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Learning project",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/Kirill2511/express-mesto.git"
   },
-  "author": "",
+  "author": "Kirill Larionov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Kirill2511/express-mesto/issues"
